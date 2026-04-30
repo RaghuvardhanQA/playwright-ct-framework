@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "#components/*": ["src/components/*"],
+            "#utils/*": ["src/main/utils/*"],
+            "#constants/*": ["src/main/resources/constants/*"],
+            "#setup/*": ["src/main/resources/setup/*"],
+            "#ctsetup": ["src/main/resources/setup/component-setup.ts"]
+        }
+    },
+    "include": ["src/**/*", "playwright-ct.config.ts", "playwright/**/*"]
+}
