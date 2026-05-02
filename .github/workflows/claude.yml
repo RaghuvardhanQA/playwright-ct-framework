@@ -36,11 +36,10 @@ jobs:
             - name: Run Claude Code
               uses: anthropics/claude-code-action@v1
               with:
-                  # Pay-per-token via API key (default).
-                  # Comment this out and uncomment use_oauth below if you'd rather
-                  # bill against a Claude Pro / Max subscription instead.
-                  anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-                  # use_oauth: 'true'
-                  # claude_access_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
-                  # claude_refresh_token: ${{ secrets.CLAUDE_REFRESH_TOKEN }}
-                  # claude_expires_at: ${{ secrets.CLAUDE_EXPIRES_AT }}
+                  # OAuth mode — bills against the user's Claude Pro / Max subscription
+                  # instead of pay-per-token API. The 3 secrets below come from
+                  # `claude setup-token` (run locally, see repo README).
+                  use_oauth: 'true'
+                  claude_access_token: ${{ secrets.CLAUDE_ACCESS_TOKEN }}
+                  claude_refresh_token: ${{ secrets.CLAUDE_REFRESH_TOKEN }}
+                  claude_expires_at: ${{ secrets.CLAUDE_EXPIRES_AT }}
