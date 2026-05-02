@@ -40,5 +40,21 @@ jobs:
                   # instead of pay-per-token API. Token generated locally via
                   # `claude setup-token`.
                   claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+            - name: Verify OAuth token secret is present
+              env:
+                  TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+              run: |
+                  if [ -z "$TOKEN" ]; then
+                      echo "::error::CLAUDE_CODE_OAUTH_TOKEN secret is empty or not set on this repo."
+                      echo "Add it at Settings → Secrets and variables → Actions → New repository secret"
+                      exit 1
+                  fi
+                  echo "Secret found. Length: ${#TOKEN} chars."
+
+            - name: Run Claude Code
+              uses: anthropics/claude-code-action@v1
+              env:
+                  CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+              with:
                   # Pin to Sonnet 4.6 for review quality + cost balance.
                   model: claude-sonnet-4-6
