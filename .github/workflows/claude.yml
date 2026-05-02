@@ -40,3 +40,5 @@ jobs:
                   # instead of pay-per-token API. Token generated locally via
                   # `claude setup-token`.
                   claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+                  # Pin to Sonnet 4.6 for review quality + cost balance.
+                  model: claude-sonnet-4-6
