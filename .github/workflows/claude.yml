@@ -33,6 +33,13 @@ jobs:
               with:
                   fetch-depth: 1
 
+            - name: Run Claude Code
+              uses: anthropics/claude-code-action@v1
+              with:
+                  # OAuth mode — bills against the user's Claude Pro / Max subscription
+                  # instead of pay-per-token API. Token generated locally via
+                  # `claude setup-token`.
+                  claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
             - name: Verify OAuth token secret is present
               env:
                   TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

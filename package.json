@@ -1,0 +1,37 @@
+{
+  "name": "playwright-ct-framework",
+  "version": "1.0.0",
+  "description": "Playwright Automation Framework for component testing",
+  "main": "index.js",
+  "scripts": {
+    "test-ct": "playwright test -c playwright-ct.config.ts",
+    "test-ct:ui": "playwright test -c playwright-ct.config.ts --ui",
+    "test-ct:headed": "playwright test -c playwright-ct.config.ts --headed",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaghuvardhanQA/playwright-ct-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/RaghuvardhanQA/playwright-ct-framework/issues"
+  },
+  "homepage": "https://github.com/RaghuvardhanQA/playwright-ct-framework#readme",
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.59.1",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-tsconfig-paths": "^6.1.1"
+  }
+}
